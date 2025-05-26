@@ -1,0 +1,48 @@
+﻿<Window x:Class="Task3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!-- Треугольная кнопка -->
+        <Button Width="100" Height="100" ToolTip="Треугольная кнопка">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Polygon Points="50,0 100,100 0,100" Fill="Red" />
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <TextBlock>Треугольник</TextBlock>
+            </Button.Content>
+        </Button>
+
+        <!-- Круглая кнопка -->
+        <Button Width="100" Height="100" ToolTip="Круглая кнопка">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Ellipse Fill="Green" />
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <TextBlock>Круг</TextBlock>
+            </Button.Content>
+        </Button>
+
+        <!-- Пирамидальная кнопка (треугольник с основанием) -->
+        <Button Width="100" Height="100" ToolTip="Пирамидальная кнопка">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!-- Боковые стороны пирамиды -->
+                        <Polygon Points="50,0 0,50 50,100" Fill="LightYellow" />
+                        <Polygon Points="50,0 100,50 50,100" Fill="LightGoldenrodYellow" />
+                        <!-- Основание пирамиды -->
+                        <Polygon Points="0,50 100,50 50,100" Fill="LightGoldenrodYellow" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <TextBlock>Пирамида</TextBlock>
+            </Button.Content>
+        </Button>
+    </StackPanel>
+</Window>

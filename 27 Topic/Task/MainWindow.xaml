@@ -1,0 +1,65 @@
+﻿<Window x:Class="Task.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Библиотека" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Форма добавления книги -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+            <Label Content="Название книги:"/>
+            <TextBox x:Name="titleTextBox" Width="186" ToolTip="Название книги"/>
+            <Label Content="Автор:"/>
+            <TextBox x:Name="authorTextBox" Width="186" ToolTip="Автор"/>
+            <Label Content="Год издания:"/>
+            <TextBox x:Name="yearTextBox" Width="186" ToolTip="Год издания"/>
+            <Button x:Name="addButton" Content="Добавить книгу" Click="AddBook_Click"/>
+        </StackPanel>
+
+        <!-- Список книг -->
+        <ListBox x:Name="booksListBox" Grid.Column="0" Margin="10" Grid.RowSpan="4"/>
+
+        <!-- Кнопки загрузки и сохранения XML-файлов -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="loadButton" Content="Загрузить XML" Click="LoadXml_Click" Margin="5"/>
+            <Button x:Name="saveButton" Content="Сохранить XML" Click="SaveXml_Click" Margin="5"/>
+        </StackPanel>
+
+        <!-- Поиск, удаление книги и выбор компонента с использованием Expander в StackPanel -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+            <Expander Header="Поиск и удаление книги">
+                <StackPanel>
+                    <Label Content="Поиск книги:"/>
+                    <TextBox x:Name="searchTextBox" Width="186" ToolTip="Поиск книги"/>
+                    <Button x:Name="searchButton" Content="Поиск книги" Click="SearchBook_Click"/>
+                    <Label Content="Удаление книги:"/>
+                    <TextBox x:Name="deleteTextBox" Width="186" ToolTip="Удаление книги"/>
+                    <Button x:Name="deleteButton" Content="Удалить книгу" Click="DeleteBook_Click"/>
+                </StackPanel>
+            </Expander>
+
+            <Expander Header="Компоненты">
+                <StackPanel>
+                    <Label Content="Вывод списка:"/>
+                    <RadioButton GroupName="DisplayOptions" Content="В TextBox" Checked="DisplayInTextBox_Checked"/>
+                    <RadioButton GroupName="DisplayOptions" Content="В TreeView" Checked="DisplayInTreeView_Checked"/>
+                    <RadioButton GroupName="DisplayOptions" Content="В ListBox" Checked="DisplayInListBox_Checked"/>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+
+        <!-- Отображение списка книг в разных компонентах -->
+        <TextBox x:Name="booksTextBox1" Grid.Column="0" Margin="10" Grid.RowSpan="4" Visibility="Collapsed"/>
+        <TreeView x:Name="booksTreeView" Grid.Column="0" Margin="10" Grid.RowSpan="4" Visibility="Collapsed"/>
+        <ListBox x:Name="booksListBox1" Grid.Column="0" Margin="10" Grid.RowSpan="4" Visibility="Collapsed"/>
+    </Grid>
+</Window>
